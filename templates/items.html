@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Вы просматриваете раздел <mark>{{ name }}</mark></h1>
+{% for item in goods %}
+	<div class="mx-2 my-3 bg-white text-dark border border-secondary rounded container p-2">
+    <div class="row">
+      <div class="col-3">
+  		  <img src="../{{ srcs[item[0]|string()][0] }}" alt="IMAGE" class="p-2 pb-5 mr-1 rounded" style="width: 240px;">
+      </div>
+      <div class="col">
+    		<a class="h3" href="/item/{{ item[0] }}">{{ item[2] }}</a>
+				<h4 class="text-muted">{{ item[4] }} руб.</h4>
+    		<p class="text-left"> {{ item[3] }} </p>
+        {% if session['is_admin'] %}
+          <a href="/delete/{{ item[0] }}" role="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </a>
+					<a href="/add_photo/{{ item[0] }}">Добавить фотографии</a>
+        {% endif %}
+      </div>
+    </div>
+	</div>
+{% endfor %}
+{% endblock %}

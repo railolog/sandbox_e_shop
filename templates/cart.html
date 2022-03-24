@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if goods %}
+<form action="" method="post">
+  <table class="table table-borderd">
+    <thead>
+      <tr>
+        <th scope="col">Наименование</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Кол-во</th>
+        <th scope="col">Сумма</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in goods %}
+      <tr>
+        <td><a href="/item/{{ item[0][0] }}">{{ item[0][2] }}</a></td>
+        <td>{{ item[0][4] }}</td>
+        <td><input class="form-control" name="count_{{item[0][0]}}" value="{{item[1]}}" placeholder="{{item[1]}}"></td>
+        <td class="text-right">{{ item[0][4] * item[1] }}</td>
+        <td><a href="/delete_from_cart/{{ item[0][0] }}">Удалить из корзины</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="4" class="text-right">{{ sum }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-primary">Пересчитать</button>
+  <a href="/make_order" class="btn btn-outline-success" data-toggle="tooltip"
+  title="Прежде чем оформить заказ, пересчитайте, чтобы удостовериться в правильности кол-ва товаров">Оформить заказ</a>
+</form>
+{% else %}
+  <div class="alert alert-warning">
+    В вашей корзине пока нет ни одного товара. <a href="/">Перейти на главную страницу</a>
+  </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+[
+  {"src": "gpu.jpg", "title": "Видеокарты", "name": "gpu"},
+  {"src": "motherboard.png", "title": "Материнсие платы", "name": "motherboard"},
+  {"src": "cpu.jpg", "title": "ЦП", "name": "cpu"},
+  {"src": "ram.jpg", "title": "ОЗУ", "name": "ram"},
+  {"src": "ssd.jpg", "title": "HDD, SSD", "name": "memory_drivers"},
+  {"src": "cooling_system.png", "title": "Системы охлаждения", "name": "cooling_system"},
+  {"src": "power_supply.jpg", "title": "Блоки питания", "name": "power_supply"},
+  {"src": "computer_case.jpg", "title": "Корпуса", "name": "computer_case"},
+  {"src": "thermal_paste.jpg", "title": "Термопасты", "name": "thermal_paste"}
+]

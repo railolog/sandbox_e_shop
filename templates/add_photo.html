@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form action="" method="post" enctype="multipart/form-data" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.photo_upload() }}
+      {% for error in form.photo_upload.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+      {% endfor %}
+    </p>
+  	<p>
+      {{ form.submit() }}
+    </p>
+  </form>
+  <p><a href="/">Завершить</a></p>
+{% endblock %}

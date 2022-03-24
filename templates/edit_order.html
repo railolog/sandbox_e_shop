@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post">
+  <div class="form-group">
+    <label for="FormControl">Выберите статус</label>
+    <select class="form-control" name="new_status" id="FormControl">
+      {% for option in options %}
+      <option value="{{option}}">{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+{% endblock %}

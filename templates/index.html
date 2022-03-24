@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 href="/">Категории товаров</h1>
+  <div class="row pl-3">
+  {% for item in categories %}
+    <div class="card my-2 pt-2 mx-2" style="width: 18rem;">
+      <img class="card-img-top" src="static/img/main/{{item['src']}}" alt="item image">
+      <div class="card-body">
+        <h5 class="card-title">{{item['title']}}</h5>
+        <a href="/items/{{item['name']}}" class="btn btn-secondary">Смотреть {{item['title']}}</a>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}

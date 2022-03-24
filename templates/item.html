@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ item[2] }}</h2>
+  <div id="carouselExampleIndicators" class="carousel slide" style="width: 35%" data-ride="carousel">
+  	<ol class="carousel-indicators">
+  		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+  		{% for i in range(1, length) %}
+  			<li data-target="#carouselExampleIndicators" data-slide-to={{ i|string() }}></li>
+  		{% endfor %}
+  	</ol>
+  	<div class="carousel-inner">
+  		<div class="carousel-item active">
+  			<img src="../{{ one_src }}" alt="slide" class="d-block w-100">
+  		</div>
+  		{% for src in srcs %}
+  			<div class="carousel-item">
+  				<img src="../{{ src }}" alt="slide" class="d-block w-100">
+  			</div>
+  		{% endfor %}
+  	</div>
+  	<a data-slide="prev" role="button" href="#carouselExampleIndicators" class="carousel-control-prev">
+  		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  		<span class="sr-only">Previous</span>
+  	</a>
+  	<a data-slide="next" role="button" href="#carouselExampleIndicators" class="carousel-control-next">
+  		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+  		<span class="sr-only">Next</span>
+  	</a>
+  </div>
+  <h4 class="text-muted">Цена: {{ item[4] }}</h4>
+  <div class="border border-secondary rounded my-3 p-1">
+  	<p>{{ item[3] }}</p>
+  </div>
+  {% if "username" in session %}
+    <a href="/add_to_cart/{{ session['user_id']}}/{{ item[0] }}" class="btn btn-outline-success" role="button">Добавить в корзину</a>
+  {% else %}
+    <div class="alert alert-warning">
+      Для добавления товара в корзину нужно <a href="/login">войти</a> или
+      <a href="/registration">зарегестрироваться</a>
+    </div>
+  {% endif %}
+{% endblock %}

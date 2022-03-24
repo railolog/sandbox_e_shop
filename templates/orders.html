@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Ваши заказы</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Товар</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Сумма</th>
+      <th scope="col">Дата оформления</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+    <tr>
+      <td><a href="/item/{{order[0][1]}}">{{ order[1][2] }}</a></td>
+      <td>{{ order[0][3] }}</td>
+      <td>{{ order[0][4] }}</td>
+      <td>{{ order[0][5] }}</td>
+      <td>{{ order[0][6] }}</td>
+      <td>{{ order[0][7] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
